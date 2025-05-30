@@ -202,6 +202,51 @@ summary { font-weight: bold; }
   /* Make all textareas taller & wider */
   textarea { min-height: 140px; width: 95%; max-width: 900px; }
 
+    /* Popup box styles */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .popup-overlay.active {
+      display: flex;
+    }
+    .popup-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    .popup-box a {
+      display: inline-block;
+      margin-top: 10px;
+      background: #007bff;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .popup-box button.close-popup {
+      background: none;
+      border: none;
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
 </style>
 
 </head>
@@ -424,8 +469,19 @@ summary { font-weight: bold; }
         </form>
       </article>
     </details>
-  </section>
+</section>
 </main>
+
+<!-- Popup for results -->
+<div id="resultPopup" class="popup-overlay" role="dialog" aria-modal="true">
+  <div class="popup-box">
+    <button class="close-popup" aria-label="Close">&times;</button>
+    <h3>Results Submitted</h3>
+    <p>You can now visit Google Classroom to record your work.</p>
+    <!-- STAFF: Replace href with the project link when available -->
+    <a id="popupClassroomLink" href="#" target="_blank">Open Google Classroom</a>
+  </div>
+</div>
 
 <script>
     // Script for handling navigation link clicks and toggling active sections
@@ -482,6 +538,23 @@ summary { font-weight: bold; }
 </script>
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyZg2GV0u5pPE3Juj1OMIlnnTFe9XcYSyh03QSYQc5SEJ4RtYVymMLk7jynJedTPQb89w/exec";
+const CLASSROOM_LINK = "#"; // STAFF: Replace with your Google Classroom link
+
+function showResultPopup(url) {
+  const overlay = document.getElementById('resultPopup');
+  const link = document.getElementById('popupClassroomLink');
+  if (link) link.href = url || '#';
+  if (overlay) overlay.classList.add('active');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const closeBtn = document.querySelector('#resultPopup .close-popup');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      document.getElementById('resultPopup').classList.remove('active');
+    });
+  }
+});
 
 function submitQuiz(btn, quizType) {
   const form = btn.closest('form');
@@ -553,6 +626,7 @@ function submitAdvancedQuiz(btn, quizType) {
       timestamp: new Date().toISOString()
     })
   });
+  showResultPopup(CLASSROOM_LINK);
 }
 </script>
 </body>
