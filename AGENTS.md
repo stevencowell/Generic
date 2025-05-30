@@ -4,7 +4,7 @@ The following files demonstrate the preferred structure and style for new
 project pages. The assistant should consult them for guidance whenever
 generating or reviewing code:
 
-- `best-practices/clock-example.html` – a copy of your clock project page
+- clock-example.html` – a copy of your clock project page
 - Any related CSS or scripts in `best-practices/` (if added)
 
 ## Usage
