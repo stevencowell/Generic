@@ -201,6 +201,7 @@ summary { font-weight: bold; }
 
   /* Make all textareas taller & wider */
   textarea { min-height: 140px; width: 95%; max-width: 900px; }
+  .wide-textarea { width: 98%; max-width: 1000px; }
 
     /* Popup box styles */
     .popup-overlay {
@@ -341,9 +342,9 @@ summary { font-weight: bold; }
             <legend><b>Week 1 Quiz</b></legend>
             <ol>
               <li>
-                <p>Which of these is a safe workshop practice?</p>
-                <label><input data-correct="true" name="main_q1_1" type="radio" value="Wear glasses" /> Wearing safety glasses</label><br />
-                <label><input name="main_q1_1" type="radio" value="No PPE" /> Not using PPE</label>
+                <p>Which of these is a safe workshop practice? <button aria-label="Read question aloud" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></p>
+                <label><input data-correct="true" name="main_q1_1" type="radio" value="Wear glasses" /> Wearing safety glasses <button aria-label="Read answer Wearing safety glasses" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label><br />
+                <label><input name="main_q1_1" type="radio" value="No PPE" /> Not using PPE <button aria-label="Read answer Not using PPE" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label>
               </li>
             </ol>
             <button class="check-btn" type="button" onclick="submitQuiz(this, 'Main Theory Content - Week 1')">Check Answers</button>
@@ -366,9 +367,9 @@ summary { font-weight: bold; }
             <legend><b>Support Quiz – Week 1</b></legend>
             <ol>
               <li>
-                <p>What should you always wear in the workshop?</p>
-                <label><input data-correct="true" name="support_q1_1" type="radio" value="Safety glasses" /> Safety glasses</label><br />
-                <label><input name="support_q1_1" type="radio" value="Sandals" /> Sandals</label>
+                <p>What should you always wear in the workshop? <button aria-label="Read question aloud" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></p>
+                <label><input data-correct="true" name="support_q1_1" type="radio" value="Safety glasses" /> Safety glasses <button aria-label="Read answer Safety glasses" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label><br />
+                <label><input name="support_q1_1" type="radio" value="Sandals" /> Sandals <button aria-label="Read answer Sandals" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label>
               </li>
             </ol>
             <button class="check-btn" type="button" onclick="submitQuiz(this, 'Support Content - Week 1')">Check Answers</button>
@@ -386,9 +387,9 @@ summary { font-weight: bold; }
             <legend><b>Support Quiz – Week 2</b></legend>
             <ol>
               <li>
-                <p>Which tool is best for drawing a 90-degree line across timber?</p>
-                <label><input data-correct="true" name="support_q2_1" type="radio" value="Combination square" /> Combination square</label><br />
-                <label><input name="support_q2_1" type="radio" value="Hammer" /> Hammer</label>
+                <p>Which tool is best for drawing a 90-degree line across timber? <button aria-label="Read question aloud" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></p>
+                <label><input data-correct="true" name="support_q2_1" type="radio" value="Combination square" /> Combination square <button aria-label="Read answer Combination square" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label><br />
+                <label><input name="support_q2_1" type="radio" value="Hammer" /> Hammer <button aria-label="Read answer Hammer" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label>
               </li>
             </ol>
             <button class="check-btn" type="button" onclick="submitQuiz(this, 'Support Content - Week 2')">Check Answers</button>
@@ -407,9 +408,9 @@ summary { font-weight: bold; }
             <legend><b>Support Quiz – Week 3</b></legend>
             <ol>
               <li>
-                <p>Which of these is a hardwood?</p>
-                <label><input data-correct="true" name="support_q3_1" type="radio" value="Oak" /> Oak</label><br />
-                <label><input name="support_q3_1" type="radio" value="Pine" /> Pine</label>
+                <p>Which of these is a hardwood? <button aria-label="Read question aloud" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></p>
+                <label><input data-correct="true" name="support_q3_1" type="radio" value="Oak" /> Oak <button aria-label="Read answer Oak" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label><br />
+                <label><input name="support_q3_1" type="radio" value="Pine" /> Pine <button aria-label="Read answer Pine" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label>
               </li>
             </ol>
             <button class="check-btn" type="button" onclick="submitQuiz(this, 'Support Content - Week 3')">Check Answers</button>
@@ -428,9 +429,9 @@ summary { font-weight: bold; }
             <legend><b>Support Quiz – Week 4</b></legend>
             <ol>
               <li>
-                <p>Which tool cuts along the grain of wood?</p>
-                <label><input data-correct="true" name="support_q4_1" type="radio" value="Rip saw" /> Rip saw</label><br />
-                <label><input name="support_q4_1" type="radio" value="Claw hammer" /> Claw hammer</label>
+                <p>Which tool cuts along the grain of wood? <button aria-label="Read question aloud" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></p>
+                <label><input data-correct="true" name="support_q4_1" type="radio" value="Rip saw" /> Rip saw <button aria-label="Read answer Rip saw" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label><br />
+                <label><input name="support_q4_1" type="radio" value="Claw hammer" /> Claw hammer <button aria-label="Read answer Claw hammer" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label>
               </li>
             </ol>
             <button class="check-btn" type="button" onclick="submitQuiz(this, 'Support Content - Week 4')">Check Answers</button>
@@ -449,9 +450,9 @@ summary { font-weight: bold; }
             <legend><b>Support Quiz – Week 5</b></legend>
             <ol>
               <li>
-                <p>Which joint is easiest for beginners?</p>
-                <label><input data-correct="true" name="support_q5_1" type="radio" value="Butt joint" /> Butt joint</label><br />
-                <label><input name="support_q5_1" type="radio" value="Dovetail joint" /> Dovetail joint</label>
+                <p>Which joint is easiest for beginners? <button aria-label="Read question aloud" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></p>
+                <label><input data-correct="true" name="support_q5_1" type="radio" value="Butt joint" /> Butt joint <button aria-label="Read answer Butt joint" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label><br />
+                <label><input name="support_q5_1" type="radio" value="Dovetail joint" /> Dovetail joint <button aria-label="Read answer Dovetail joint" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label>
               </li>
             </ol>
             <button class="check-btn" type="button" onclick="submitQuiz(this, 'Support Content - Week 5')">Check Answers</button>
@@ -470,9 +471,9 @@ summary { font-weight: bold; }
             <legend><b>Support Quiz – Week 6</b></legend>
             <ol>
               <li>
-                <p>Why do we sand timber before finishing?</p>
-                <label><input data-correct="true" name="support_q6_1" type="radio" value="Create smooth surface" /> To create a smooth surface</label><br />
-                <label><input name="support_q6_1" type="radio" value="Make it rough" /> To make it rough</label>
+                <p>Why do we sand timber before finishing? <button aria-label="Read question aloud" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></p>
+                <label><input data-correct="true" name="support_q6_1" type="radio" value="Create smooth surface" /> To create a smooth surface <button aria-label="Read answer To create a smooth surface" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label><br />
+                <label><input name="support_q6_1" type="radio" value="Make it rough" /> To make it rough <button aria-label="Read answer To make it rough" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></label>
               </li>
             </ol>
             <button class="check-btn" type="button" onclick="submitQuiz(this, 'Support Content - Week 6')">Check Answers</button>
@@ -495,15 +496,15 @@ summary { font-weight: bold; }
             <legend><b>Advanced Activities – Week 1</b></legend>
             <ol>
               <li>
-                <p>Explain why safety glasses are important when working with wood.</p>
+                <p>Explain why safety glasses are important when working with wood. <button aria-label="Read question aloud" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></p>
                 <textarea class="wide-textarea" name="adv_q1_1" required></textarea>
               </li>
               <li>
-                <p>Describe a situation in the workshop where not following safety rules could be dangerous.</p>
+                <p>Describe a situation in the workshop where not following safety rules could be dangerous. <button aria-label="Read question aloud" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></p>
                 <textarea class="wide-textarea" name="adv_q1_2" required></textarea>
               </li>
               <li>
-                <p>What would you change about safety procedures in your classroom?</p>
+                <p>What would you change about safety procedures in your classroom? <button aria-label="Read question aloud" onclick="event.preventDefault(); speakText(this)" type="button">🔊</button></p>
                 <textarea class="wide-textarea" name="adv_q1_3" required></textarea>
               </li>
             </ol>
@@ -584,6 +585,39 @@ summary { font-weight: bold; }
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyZg2GV0u5pPE3Juj1OMIlnnTFe9XcYSyh03QSYQc5SEJ4RtYVymMLk7jynJedTPQb89w/exec";
 const CLASSROOM_LINK = "#"; // STAFF: Replace with your Google Classroom link
 
+// Voice setup for text-to-speech
+const synth = window.speechSynthesis;
+let voices = [];
+synth.onvoiceschanged = () => { voices = synth.getVoices(); };
+
+function speakText(btn) {
+  let text = '';
+  if (btn.dataset.text) {
+    text = btn.dataset.text;
+  } else {
+    const p = btn.closest('p');
+    if (p) {
+      text = Array.from(p.childNodes)
+        .filter(n => n.nodeType === Node.TEXT_NODE)
+        .map(n => n.textContent.trim())
+        .join(' ');
+    } else {
+      const lbl = btn.closest('label');
+      text = Array.from(lbl.childNodes)
+        .filter(n => n.nodeType === Node.TEXT_NODE)
+        .map(n => n.textContent.trim())
+        .filter(t => t.length)
+        .join(' ');
+    }
+  }
+  if (!voices.length) voices = synth.getVoices();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.voice = voices.find(v => v.name === 'Google UK English Female')
+             || voices.find(v => /Natural/.test(v.name))
+             || voices[0];
+  synth.speak(utt);
+}
+
 function showResultPopup(url) {
   const overlay = document.getElementById('resultPopup');
   const link = document.getElementById('popupClassroomLink');
@@ -645,6 +679,7 @@ function submitQuiz(btn, quizType) {
       timestamp: new Date().toISOString()
     })
   });
+  showResultPopup(CLASSROOM_LINK);
 }
 
 function submitAdvancedQuiz(btn, quizType) {
