@@ -238,6 +238,20 @@ summary { font-weight: bold; }
       border-radius: 4px;
       font-weight: bold;
     }
+    .popup-box button:not(.close-popup) {
+      display: inline-block;
+      margin-top: 10px;
+      background: #007bff;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .popup-box button:not(.close-popup):hover {
+      background: #0056b3;
+    }
     .popup-box button.close-popup {
       background: none;
       border: none;
@@ -528,6 +542,15 @@ summary { font-weight: bold; }
   </div>
 </div>
 
+<!-- Popup for entering name -->
+<div id="namePopup" class="popup-overlay" role="dialog" aria-modal="true">
+  <div class="popup-box">
+    <label for="studentName"><b>Please enter your name:</b></label><br/>
+    <input type="text" id="studentName" style="margin-top:10px; padding:8px; width:95%;" />
+    <button id="submitNameBtn" style="margin-top:10px;">Submit</button>
+  </div>
+</div>
+
 <script>
     // Script for handling navigation link clicks and toggling active sections
     document.addEventListener('DOMContentLoaded', () => {
@@ -625,6 +648,22 @@ function showResultPopup(url) {
   if (overlay) overlay.classList.add('active');
 }
 
+function askForName() {
+  return new Promise(resolve => {
+    const overlay = document.getElementById('namePopup');
+    const input = document.getElementById('studentName');
+    const btn = document.getElementById('submitNameBtn');
+    if (!overlay || !input || !btn) { resolve(''); return; }
+    overlay.classList.add('active');
+    btn.onclick = () => {
+      const name = input.value.trim();
+      if (!name) return;
+      overlay.classList.remove('active');
+      resolve(name);
+    };
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.querySelector('#resultPopup .close-popup');
   if (closeBtn) {
@@ -667,19 +706,21 @@ function submitQuiz(btn, quizType) {
   let msg = `You got ${correct} out of ${total} correct.`;
   form.querySelector('.quiz-msg').textContent = msg;
 
-  // Send to Google Apps Script
-  fetch(SCRIPT_URL, {
-    method: "POST",
-    mode: "cors",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      quizType,
-      quiz: results,
-      score: correct + "/" + total,
-      timestamp: new Date().toISOString()
-    })
+  askForName().then(name => {
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        quizType,
+        quiz: results,
+        score: correct + "/" + total,
+        studentName: name,
+        timestamp: new Date().toISOString()
+      })
+    });
+    showResultPopup(CLASSROOM_LINK);
   });
-  showResultPopup(CLASSROOM_LINK);
 }
 
 function submitAdvancedQuiz(btn, quizType) {
