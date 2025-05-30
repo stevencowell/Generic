@@ -534,21 +534,26 @@ function submitAdvancedQuiz(btn, quizType) {
   const form = btn.closest('form');
   const textareas = form.querySelectorAll('textarea');
   const responses = [];
-  textareas.forEach((ta, idx) => {
+  textareas.forEach((ta) => {
     responses.push({
       question: ta.closest('li').querySelector('p').textContent,
       answer: ta.value.trim()
     });
   });
-  // Show feedback
-  form.querySelector('.quiz-msg').textContent = "Responses submitted. Your teacher will review them.";
-  // Send to Google Apps Script
+
+  const studentName = prompt('Please enter your name to submit your answers:');
+  if (!studentName) return;
+
+  form.querySelector('.quiz-msg').textContent =
+    'Responses submitted. Your teacher will review them.';
+
   fetch(SCRIPT_URL, {
-    method: "POST",
-    mode: "cors",
-    headers: { "Content-Type": "application/json" },
+    method: 'POST',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       quizType,
+      studentName: studentName.trim(),
       responses,
       timestamp: new Date().toISOString()
     })
